@@ -1,6 +1,6 @@
 app.views.Prizes = Ext.extend(Ext.Panel, {
 
-    iconCls : 'info',
+    iconCls : 'favorites',
     layout  : 'fit',
     title   : 'Prizes',
 
@@ -43,12 +43,11 @@ app.views.Prizes = Ext.extend(Ext.Panel, {
                         action     : 'promptUserForPrize'
                     });
                 }
-            }]
-        },{
-            xtype : 'toolbar',
-            dock  : 'bottom',
-            items : [{
+            }, {
+                xtype: 'spacer'
+            },{
                 text    : 'Clear Prizes',
+                ui      : 'decline',
                 handler : function() {
                     Ext.dispatch({
                         controller : 'app.controller.Prize',

@@ -1,6 +1,6 @@
 app.views.Contestants = Ext.extend(Ext.Panel, {
 
-    iconCls : 'bookmarks',
+    iconCls : 'team',
     layout  : 'fit',
     title   : 'Contestants',
 
@@ -43,27 +43,24 @@ app.views.Contestants = Ext.extend(Ext.Panel, {
                         action     : 'promptUserForName'
                     });
                 }
-            }]
-        },{
-            xtype : 'toolbar',
-            dock  : 'bottom',
-            items : [{
-                text    : 'Clear List',
-                handler : function() {
-                    Ext.dispatch({
-                        controller : 'app.controller.Contestant',
-                        action     : 'clearContestants'
-                    });
-                }
             }, {
                 xtype: 'spacer'
             },{
                 text    : 'Call Winner!',
-                ui      : 'submit',
+                ui      : 'confirm',
                 handler : function() {
                     Ext.dispatch({
                         controller : 'app.controller.Contestant',
                         action     : 'announceWinner'
+                    });
+                }
+            },{
+                text    : 'Clear List',
+                ui      : 'decline',
+                handler : function() {
+                    Ext.dispatch({
+                        controller : 'app.controller.Contestant',
+                        action     : 'clearContestants'
                     });
                 }
             }]
