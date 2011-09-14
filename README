@@ -1,0 +1,4 @@
+Original application developed by Arthur Kay for use in the Chicago Sencha User Group:
+  - http://www.akawebdesign.com/2011/05/18/sencha-touch-prize-patrol-app/
+
+The basic idea is that given a list of contestants and prizes, an event organizer can raffle prizes. The prizes are raffled in last-to-first order, and the winning contestant is chosen via a random number algorithm.
