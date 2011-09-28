@@ -1,18 +1,12 @@
-Ext.regController('app.controller.Contestant', {
+Ext.regController('app.controllers.Contestant', {
 
-    clearContestants: function (){
-        var contestantStore = app.ui.down('contestant_view > list').getStore();
-        contestantStore.removeAll();
-        contestantStore.proxy.clear();
-    },
-
-    promptUserForName: function(button, name) {
+    addContestant : function() {
         var me = this;
 
         Ext.Msg.prompt(
             'Enter your name',
             'Please enter your name.',
-            me.addContestant,
+            me.newContestant,
             null,
             false,
             null,
@@ -23,7 +17,7 @@ Ext.regController('app.controller.Contestant', {
         );
     },
 
-    addContestant: function(button, name) {
+    newContestant : function(button, name) {
         if (name === '') { return false; }
 
         var newContestant = Ext.ModelMgr.create({
@@ -36,7 +30,7 @@ Ext.regController('app.controller.Contestant', {
         contestantStore.sync();
     },
 
-    announceWinner: function() {
+    callWinner : function() {
         var contestantStore = app.ui.down('contestant_view > list').getStore(),
             prizeStore      = app.ui.down('prize_view > list').getStore();
 
@@ -62,5 +56,12 @@ Ext.regController('app.controller.Contestant', {
             prizeStore.removeAt(prizeStore.getCount()-1);
             prizeStore.sync();
         }
+    },
+
+    clearContestants : function() {
+        var contestantStore = app.ui.down('contestant_view > list').getStore();
+        contestantStore.removeAll();
+        contestantStore.proxy.clear();
     }
+
 });

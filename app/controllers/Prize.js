@@ -1,18 +1,12 @@
-Ext.regController('app.controller.Prize', {
+Ext.regController('app.controllers.Prize', {
 
-    clearPrizes: function() {
-        var prizeStore = app.ui.down('prize_view > list').getStore();
-        prizeStore.removeAll();
-        prizeStore.proxy.clear();
-    },
-
-    promptUserForPrize: function() {
+    addPrize: function() {
         var me = this;
 
         Ext.Msg.prompt(
             'Enter your Prize',
             'Enter the name of the prize.',
-            me.addPrize,
+            me.newPrize,
             null,
             false,
             null,
@@ -23,8 +17,7 @@ Ext.regController('app.controller.Prize', {
         );
     },
 
-
-    addPrize: function(button, name) {
+    newPrize : function(button, name) {
         if (name === '') { return false; }
 
         var newPrize = Ext.ModelMgr.create({
@@ -35,5 +28,12 @@ Ext.regController('app.controller.Prize', {
 
         prizeStore.add(newPrize);
         prizeStore.sync();
+    },
+
+    clearPrizes: function() {
+        var prizeStore = app.ui.down('prize_view > list').getStore();
+        prizeStore.removeAll();
+        prizeStore.proxy.clear();
     }
+
 });
