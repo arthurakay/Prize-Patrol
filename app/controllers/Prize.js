@@ -18,20 +18,21 @@ Ext.regController('app.controllers.Prize', {
     },
 
     newPrize : function(button, name) {
-        if (name === '') { return false; }
+        if (!name || typeof name !== 'string' || name === '') { return false; }
 
         var newPrize = Ext.ModelMgr.create({
             Name: name
         }, 'Prize');
 
-        var prizeStore = app.ui.down('prize_view > list').getStore();
+        var prizeStore = Ext.StoreMgr.lookup('Prizes');
 
         prizeStore.add(newPrize);
         prizeStore.sync();
     },
 
     clearPrizes: function() {
-        var prizeStore = app.ui.down('prize_view > list').getStore();
+        var prizeStore = Ext.StoreMgr.lookup('Prizes');
+        
         prizeStore.removeAll();
         prizeStore.proxy.clear();
     }

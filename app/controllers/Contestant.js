@@ -18,13 +18,13 @@ Ext.regController('app.controllers.Contestant', {
     },
 
     newContestant : function(button, name) {
-        if (name === '') { return false; }
+        if (!name || typeof name !== 'string' || name === '') { return false; }
 
         var newContestant = Ext.ModelMgr.create({
             Name: name
         }, 'Contestant');
 
-        var contestantStore = app.ui.down('contestant_view > list').getStore();
+        var contestantStore = Ext.StoreMgr.lookup('Contestants');
 
         contestantStore.add(newContestant);
         contestantStore.sync();
@@ -42,7 +42,7 @@ Ext.regController('app.controllers.Contestant', {
         }
         else {
             var prize       = prizeStore.getAt(prizeStore.getCount()-1).get('Name'),
-                winnerIndex = Math.floor(Math.random() * contestantStore.getCount()),
+                winnerIndex = this.generateWinIndex(contestantStore),
                 winner      = contestantStore.getAt(winnerIndex).get('Name');
 
             Ext.Msg.alert(
@@ -58,8 +58,13 @@ Ext.regController('app.controllers.Contestant', {
         }
     },
 
+    generateWinIndex : function(contestantStore) {
+        return Math.floor(Math.random() * contestantStore.getCount());
+    },
+
     clearContestants : function() {
-        var contestantStore = app.ui.down('contestant_view > list').getStore();
+        var contestantStore = Ext.StoreMgr.lookup('Contestants');
+        
         contestantStore.removeAll();
         contestantStore.proxy.clear();
     }
