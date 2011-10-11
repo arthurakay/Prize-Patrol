@@ -59,6 +59,7 @@ Ext.regController('app.controllers.Contestant', {
     },
 
     generateWinIndex : function(contestantStore) {
+        //TODO Improve random number generator so that it never returns value of store.length
         return Math.floor(Math.random() * contestantStore.getCount());
     },
 

@@ -1,30 +1,23 @@
 #!/bin/bash
-while getopts  "j:t:" flag
-do
-  if [ $flag == "j" ]; then
-    JSTD=$OPTARG
-  elif [ $flag == "t" ]; then
-    TESTS=$OPTARG
-  fi
-done
 
-if [ -z "$JSTD" ]; then
-	JSTD=`ls [jJ]s[tT]est[dD]river*.jar`
-fi
+# CONFIGS
+JSTD=`ls [jJ]s[tT]est[dD]river*.jar`
+PORT="4224"
+HOST=http://localhost:$PORT
+CONFIG="jsTestDriver.conf"
+OUTPUT_DIR="_results"
 
-if [ -z "$TESTS" ]; then
-  TESTS="all"
-  echo "Running all tests"
-else
-  echo "Running '$TESTS'"
-fi
+# Browsers
+CHROME="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+OPERA="/Applications/Opera.app/Contents/MacOS/Opera"
+FIREFOX="/Applications/Firefox.app/Contents/MacOS/firefox"
+SAFARI="/Applications/Safari.app/Contents/MacOS/Safari"
 
-FIREFOX=`which firefox`
-if [ "$?" -eq 1 ];
-then
-    echo "Firefox not found."
-    exit 1
-fi
+# SAFARI is currently adding a "file:///" string to the URL, so it doesn't work as expected.
+# See http://code.google.com/p/js-test-driver/wiki/ContinuousBuild
 
-#java -jar $JSTD --reset --tests "$TESTS"
-java -jar $JSTD --port "4224 --reset --tests "all" --config jsTestDriver.conf --browser $FIREFOX
+echo "Running all tests"
+
+java -jar $JSTD --port $PORT --reset --config $CONFIG --browser $FIREFOX --tests "all" --testOutput $OUTPUT_DIR
+
+echo "Tests complete."
