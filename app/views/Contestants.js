@@ -22,7 +22,7 @@ app.views.Contestants = Ext.extend(Ext.Panel, {
                 itemTpl   : '{Name}',
                 store     : 'Contestants'
             })
-        ]
+        ];
     },
 
     buildDocks : function() {

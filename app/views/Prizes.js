@@ -22,7 +22,7 @@ app.views.Prizes = Ext.extend(Ext.Panel, {
                 itemTpl   : '{Name}',
                 store     : 'Prizes'
             })
-        ]
+        ];
     },
 
     buildDocks : function() {
