@@ -3,61 +3,32 @@
         <title></title>
 
         <!-- Jasmine -->
-        <script type="text/javascript" src="/assets/jasmine-standalone-1.1.0/lib/jasmine-1.1.0/jasmine.js"></script>
-        <script type="text/javascript" src="/assets/jasmine-standalone-1.1.0/lib/jasmine-1.1.0/jasmine-html.js"></script>
+        <script type="text/javascript" src="/test/jasmine-standalone-1.1.0/lib/jasmine-1.1.0/jasmine.js"></script>
+        <script type="text/javascript" src="/test/jasmine-standalone-1.1.0/lib/jasmine-1.1.0/jasmine-html.js"></script>
 
         <!-- SenchaTouch -->
-        <script type="text/javascript" src="/assets/sencha-touch-1.1.1/sencha-touch-debug.js"></script>
+        <script type="text/javascript" src="/sencha-touch-1.1.1/sencha-touch-debug.js"></script>
 
-        <!-- Utilities -->
-        <script type="text/javascript" src="/assets/ux/ListPagingPlugin.js"></script>
-        <script type="text/javascript" src="/assets/ux/Ext.util.Format.js"></script>
-        <script type="text/javascript" src="/assets/ux/Ext.util.BBCode.js"></script>
 
         <!-- TEST app.js which fires up jasmine -->
-        <script type="text/javascript" src="app/app.js"></script>
+        <script type="text/javascript" src="/test/app/app.js"></script>
 
-        <!-- These don't get loaded automatically -->
-        <script type="text/javascript" src="/app/config.js"></script>
-        <script type="text/javascript" src="/app/app.History.js"></script>
-        <script type="text/javascript" src="/app/app.Util.js"></script>
+        <script type="text/javascript" src="/app/controllers/Contestant.js"></script>
+        <script type="text/javascript" src="/app/controllers/Prize.js"></script>
 
-        <script type="text/javascript" src="/app/controller/App.js"></script>
-        <script type="text/javascript" src="/app/controller/Menu.js"></script>
-        <script type="text/javascript" src="/app/controller/Search.js"></script>
-        <script type="text/javascript" src="/app/controller/Settings.js"></script>
-        <script type="text/javascript" src="/app/controller/Sidebar.js"></script>
-        <script type="text/javascript" src="/app/controller/Thread.js"></script>
-        <script type="text/javascript" src="/app/controller/User.js"></script>
+        <script type="text/javascript" src="/app/models/Contestant.js"></script>
+        <script type="text/javascript" src="/app/models/Prize.js"></script>
 
-        <script type="text/javascript" src="/app/model/Forum.js"></script>
-        <script type="text/javascript" src="/app/model/Post.js"></script>
-        <script type="text/javascript" src="/app/model/Setting.js"></script>
-        <script type="text/javascript" src="/app/model/Thread.js"></script>
+        <script type="text/javascript" src="/app/stores/Contestants.js"></script>
+        <script type="text/javascript" src="/app/stores/Prizes.js"></script>
 
-        <script type="text/javascript" src="/app/store/Forums.js"></script>
-        <script type="text/javascript" src="/app/store/Posts.js"></script>
-        <script type="text/javascript" src="/app/store/Settings.js"></script>
-        <script type="text/javascript" src="/app/store/Threads.js"></script>
-        <script type="text/javascript" src="/app/store/ThreadsSearch.js"></script>
-        <script type="text/javascript" src="/app/store/ThreadsSubscribed.js"></script>
+        <script type="text/javascript" src="/app/views/Contestants.js"></script>
+        <script type="text/javascript" src="/app/views/Main.js"></script>
+        <script type="text/javascript" src="/app/views/Prizes.js"></script>
 
         <!-- UNIT TEST CLASSES -->
-        <script type="text/javascript" src="app/config.js"></script>
-        <script type="text/javascript" src="app/app.History.js"></script>
-        <script type="text/javascript" src="app/app.Util.js"></script>
-
-        <script type="text/javascript" src="app/model/Forum.js"></script>
-        <script type="text/javascript" src="app/model/Post.js"></script>
-        <script type="text/javascript" src="app/model/Setting.js"></script>
-        <script type="text/javascript" src="app/model/Thread.js"></script>
-
-        <script type="text/javascript" src="app/store/Forums.js"></script>
-        <script type="text/javascript" src="app/store/Posts.js"></script>
-        <script type="text/javascript" src="app/store/Settings.js"></script>
-        <script type="text/javascript" src="app/store/Threads.js"></script>
-        <script type="text/javascript" src="app/store/ThreadsSearch.js"></script>
-        <script type="text/javascript" src="app/store/ThreadsSubscribed.js"></script>
+        <script type="text/javascript" src="/test/app/controllers/Contestant.js"></script>
+        <script type="text/javascript" src="/test/app/controllers/Prizes.js"></script>
 
     </head>
     <body>

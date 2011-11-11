@@ -9,7 +9,7 @@ var filesystem = require('fs'),
 
 PhantomLint = {
 
-    verbose  : true,
+    verbose  : false, //set to true if you want a lot of output in the terminal
     fileTree : null,
     files    : [],
 
