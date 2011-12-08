@@ -6,14 +6,7 @@ Ext.regController('app.controllers.Prize', {
         Ext.Msg.prompt(
             'Enter your Prize',
             'Enter the name of the prize.',
-            me.newPrize,
-            null,
-            false,
-            null,
-            {
-                focus: true,
-                autocapitalize: true
-            }
+            me.newPrize
         );
     },
 

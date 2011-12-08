@@ -6,14 +6,7 @@ Ext.regController('app.controllers.Contestant', {
         Ext.Msg.prompt(
             'Enter your name',
             'Please enter your name.',
-            me.newContestant,
-            null,
-            false,
-            null,
-            {
-                focus          : true,
-                autocapitalize : true
-            }
+            me.newContestant
         );
     },
 
