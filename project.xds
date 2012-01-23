@@ -1,0 +1,99 @@
+{
+    "name": "project",
+    "settings": {
+        "urlPrefix": "http://prize-patrol.senchafy.com/",
+        "directAPI": "",
+        "spacesToIndent": 4,
+        "codeGenFormat": "Class",
+        "exportPath": "",
+        "extPath": "http://extjs.cachefly.net/touch/sencha-touch-designer-edition/",
+        "senchaIoPath": "http://extjs.cachefly.net/designer/IO/",
+        "lineEnding": "LF",
+        "instantiateStore": true,
+        "genTimestamps": true,
+        "saveOnDeploy": false,
+        "appName": "MyApp",
+        "mapsAPI": "http://maps.google.com/maps/api/js?sensor=true",
+        "senchaIoKey": ""
+    },
+    "xdsVersion": "2.0.0",
+    "application": {
+        "type": "application",
+        "reference": {
+            "name": "items",
+            "type": "array"
+        },
+        "codeClass": null,
+        "userConfig": {
+            "models": [
+                "Contestant",
+                "Prize"
+            ],
+            "stores": [
+                "Contestants",
+                "Prizes"
+            ],
+            "designer|launch": "",
+            "name": "MyApp"
+        },
+        "customConfigs": [],
+        "expanded": true
+    },
+    "framework": "touch20",
+    "topInstanceFileMap": {
+        "1af8f00a-579e-4222-b382-4dbf10a2d912": {
+            "paths": [
+                "app/view/Main.js",
+                "app/view/ui/Main.js",
+                "app/view/Viewport.js"
+            ],
+            "className": "Main"
+        },
+        "a41014ea-5ddf-4f16-a298-71753ec55acc": {
+            "paths": [
+                "app/store/Contestants.js",
+                "app/store/base/Contestants.js"
+            ],
+            "className": "Contestants"
+        },
+        "533c607d-2216-4253-91f0-e9ae76fcfdf2": {
+            "paths": [
+                "app/store/Prizes.js",
+                "app/store/base/Prizes.js"
+            ],
+            "className": "Prizes"
+        },
+        "dfd76512-d2fb-483e-af38-408f703fb463": {
+            "paths": [
+                "app/controller/Contestant.js"
+            ],
+            "className": "Contestant"
+        },
+        "713a4c4e-4cbe-40c2-aa72-d8d330df7626": {
+            "paths": [
+                "app/controller/Prize.js"
+            ],
+            "className": "Prize"
+        },
+        "86e70520-eb3d-44cf-a813-4cf5fb58a2d0": {
+            "paths": [
+                "app/view/ContestantPanel.js",
+                "app/view/ui/ContestantPanel.js"
+            ],
+            "className": "ContestantPanel"
+        },
+        "e3e12c36-977c-4570-af51-17a4336c9590": {
+            "paths": [
+                "app/view/PrizePanel.js",
+                "app/view/ui/PrizePanel.js"
+            ],
+            "className": "PrizePanel"
+        }
+    },
+    "expandedState": {
+        "data": true,
+        "model": true,
+        "component": true,
+        "controller": true
+    }
+}

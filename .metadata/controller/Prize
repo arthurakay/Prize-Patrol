@@ -1,0 +1,60 @@
+{
+    "id": "ExtBox1-ext-gen12937",
+    "type": "controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": null,
+        "stores": [
+            "Prizes"
+        ],
+        "designer|userClassName": "Prize"
+    },
+    "customConfigs": [],
+    "designerId": "713a4c4e-4cbe-40c2-aa72-d8d330df7626",
+    "$viewOrder": 1,
+    "expanded": false,
+    "cn": [
+        {
+            "id": "ExtBox1-ext-gen17914",
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "addPrize",
+                "implHandler": "var me = this;\n\nExt.Msg.prompt(\n'Enter your Prize',\n'Enter the name of the prize.',\nfunction(btn, name) {\n    if (btn === 'cancel') { return false; }\n\n    if (!name || typeof name !== 'string' || name === '') { return false; }\n\n    var newPrize = Ext.ModelMgr.create({\n        Name: name\n    }, 'MyApp.model.Prize');\n\n    var prizeStore = me.getPrizesStore();\n\n    prizeStore.add(newPrize);\n    prizeStore.sync();\n}\n);",
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "prizes button[ui=action]",
+                "designer|userClassName": "addPrize"
+            },
+            "customConfigs": [],
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen18513",
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "clearPrizes",
+                "implHandler": "        var prizeStore = this.getPrizesStore();\n\n        prizeStore.removeAll();\n        prizeStore.proxy.clear();",
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "prizes button[ui=decline]",
+                "designer|userClassName": "clearPrizes"
+            },
+            "customConfigs": [],
+            "expanded": true
+        }
+    ]
+}

@@ -1,0 +1,73 @@
+{
+    "id": "ExtBox1-ext-gen1960",
+    "type": "tabpanel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "designer|userClassName": "Main"
+    },
+    "customConfigs": [],
+    "designerId": "1af8f00a-579e-4222-b382-4dbf10a2d912",
+    "$viewOrder": 0,
+    "expanded": false,
+    "cn": [
+        {
+            "id": "ExtBox1-ext-gen1972",
+            "type": "tabbar",
+            "reference": {
+                "name": "tabBar",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "bottom",
+                "designer|userClassName": "MyTabBar",
+                "container|pack": "center"
+            },
+            "customConfigs": [],
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen21948",
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "Contestants",
+                "iconCls": "team",
+                "designer|userClassName": "ContestantPanel",
+                "designer|userAlias": "contestants"
+            },
+            "customConfigs": [],
+            "iconCls": "icon-linkedinstance",
+            "expanded": true,
+            "masterInstanceId": "ExtBox1-ext-gen1980"
+        },
+        {
+            "id": "ExtBox1-ext-gen23458",
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "Prizes",
+                "iconCls": "favorites",
+                "designer|userClassName": "PrizePanel",
+                "designer|userAlias": "prizes"
+            },
+            "customConfigs": [],
+            "iconCls": "icon-linkedinstance",
+            "expanded": true,
+            "masterInstanceId": "ExtBox1-ext-gen1988"
+        }
+    ]
+}
