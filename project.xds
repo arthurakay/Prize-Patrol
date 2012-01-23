@@ -14,7 +14,7 @@
         "saveOnDeploy": false,
         "appName": "MyApp",
         "mapsAPI": "http://maps.google.com/maps/api/js?sensor=true",
-        "senchaIoKey": ""
+        "senchaIoKey": "arthurakay"
     },
     "xdsVersion": "2.0.0",
     "application": {

@@ -13,7 +13,7 @@ checkError $?
 
 
 echo "*** Begin Jasmine Tests... ***"
-../assets/phantomjs-1.3.0/bin/phantomjs Jasmine-Runner.js
+#../assets/phantomjs-1.3.0/bin/phantomjs Jasmine-Runner.js
 checkError $?
 
 

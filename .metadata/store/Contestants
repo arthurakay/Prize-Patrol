@@ -18,7 +18,7 @@
     "customConfigs": [],
     "designerId": "a41014ea-5ddf-4f16-a298-71753ec55acc",
     "$viewOrder": 0,
-    "expanded": false,
+    "expanded": true,
     "cn": [
         {
             "id": "ExtBox1-ext-gen4055",
@@ -29,26 +29,11 @@
             },
             "codeClass": null,
             "userConfig": {
+                "id": "contestant-store",
                 "designer|userClassName": "MyLocalStorageProxy"
             },
             "customConfigs": [],
-            "expanded": true,
-            "cn": [
-                {
-                    "id": "ExtBox1-ext-gen4060",
-                    "type": "jsonreader",
-                    "reference": {
-                        "name": "reader",
-                        "type": "object"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "designer|userClassName": "MyJsonReader"
-                    },
-                    "customConfigs": [],
-                    "expanded": true
-                }
-            ]
+            "expanded": true
         }
     ]
 }

@@ -18,7 +18,7 @@
     "customConfigs": [],
     "designerId": "dfd76512-d2fb-483e-af38-408f703fb463",
     "$viewOrder": 0,
-    "expanded": false,
+    "expanded": true,
     "cn": [
         {
             "id": "ExtBox1-ext-gen14760",
@@ -30,7 +30,7 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "addContestant",
-                "implHandler": "",
+                "implHandler": "        var me = this;\n\n        Ext.Msg.prompt(\n        'Enter your name',\n        'Please enter your name.',\n        function(btn, name) {\n            if (btn === 'cancel') { return false; }\n\n            if (!name || typeof name !== 'string' || name === '') { return false; }\n\n            var newContestant = new MyApp.model.Contestant({\n                Name: name\n            });\n\n            var contestantStore = Ext.StoreMgr.lookup('Contestants');\n\n            contestantStore.add(newContestant);\n            contestantStore.sync();\n        }\n        );",
                 "name": "tap",
                 "designer|targetType": "Ext.Button",
                 "designer|controlQuery": "contestants button[ui=action]",
@@ -49,7 +49,7 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "announceWinner",
-                "implHandler": "",
+                "implHandler": "        var contestantStore = Ext.StoreMgr.lookup('Contestants'),\n            prizeStore      = Ext.StoreMgr.lookup('Prizes');\n\n        if (contestantStore.getCount() < 1) {\n            Ext.Msg.alert('Error', 'No more Contestants left!');\n        }\n        else if (prizeStore.getCount() < 1) {\n            Ext.Msg.alert('Error', 'No more prizes left!');\n        }\n        else {\n            var prize       = prizeStore.getAt(prizeStore.getCount()-1).get('Name'),\n                winnerIndex = Math.floor(Math.random() * contestantStore.getCount()), //random number generator\n                winner      = contestantStore.getAt(winnerIndex).get('Name');\n\n            Ext.Msg.alert(\n            'The winner is...',\n            winner + ' has won the prize: ' + prize + '!'\n            );\n\n            contestantStore.removeAt(winnerIndex);\n            contestantStore.sync();\n\n            prizeStore.removeAt(prizeStore.getCount()-1);\n            prizeStore.sync();\n        }",
                 "name": "tap",
                 "designer|targetType": "Ext.Button",
                 "designer|controlQuery": "contestants button[ui=confirm]",
@@ -68,7 +68,7 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "clearContestants",
-                "implHandler": "        var contestantStore = this.getContestantsStore();\n\n        contestantStore.removeAll();\n        contestantStore.proxy.clear();",
+                "implHandler": "        var contestantStore = Ext.StoreMgr.lookup('Contestants');\n\n        contestantStore.removeAll();\n        contestantStore.getProxy().clear();",
                 "name": "tap",
                 "designer|targetType": "Ext.Button",
                 "designer|controlQuery": "contestants button[ui=decline]",

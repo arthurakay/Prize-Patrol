@@ -14,7 +14,7 @@
     "customConfigs": [],
     "designerId": "86e70520-eb3d-44cf-a813-4cf5fb58a2d0",
     "$viewOrder": 1,
-    "expanded": false,
+    "expanded": true,
     "cn": [
         {
             "id": "ExtBox1-ext-gen7841",
@@ -25,7 +25,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "itemTpl": "<div>List Item {string}</div>",
+                "itemTpl": null,
                 "store": "Contestants",
                 "designer|userClassName": "MyList"
             },
