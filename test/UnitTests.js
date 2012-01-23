@@ -12,30 +12,51 @@ UnitTester = {
         page.open(url, function(status){
             if (status !== "success") {
                 console.log("Unable to access network");
-                phantom.exit();
-            } else {
-                me.waitFor(function(){
-                    return page.evaluate(function(){
-                        if (document.body.querySelector('.finished-at')) {
-                            return true;
-                        }
-                        return false;
-                    });
-                }, function(){
-                    page.evaluate(function(){
-                        console.log(document.body.querySelector('.description').innerText);
-                        list = document.body.querySelectorAll('div.jasmine_reporter > div.suite.failed');
-                        for (i = 0; i < list.length; ++i) {
-                            el = list[i];
-                            desc = el.querySelectorAll('.description');
-                            console.log('');
-                            for (j = 0; j < desc.length; ++j) {
-                                console.log(desc[j].innerText);
+                phantom.exit(1);
+            }
+            else {
+                me.waitFor(
+                    function() {
+                        return page.evaluate(function(){
+                            if (document.body.querySelector('.finished-at')) {
+                                return true;
                             }
-                        }
-                    });
-                    phantom.exit();
-                });
+                            return false;
+                        });
+                    },
+
+                    function() {
+                        var failures = page.evaluate(function(){
+                            console.log('\n\n' + document.body.querySelector('.description').innerText);
+
+                            var failedSuites = document.body.querySelectorAll('div.jasmine_reporter > div.suite.failed');
+
+                            for (i = 0; i < failedSuites.length; ++i) {
+                                var el     = failedSuites[i],
+                                    spec   = el.querySelector('.spec.failed'),
+                                    desc   = spec.querySelector('.description'),
+                                    msg    = spec.querySelector('.resultMessage.fail'),
+                                    stack  = spec.querySelector('.stackTrace'); // <-- WTF is this null?
+
+                                console.log('\n== Error in suite: ' + spec.previousElementSibling.innerText + ' ==');
+                                if (desc) {
+                                    console.log('Description:\n    - ' + desc.innerText + '\n');
+                                }
+                                if (msg) {
+                                    console.log('Failure Message:\n    - ' + msg.innerText + '\n');
+                                }
+                                if (stack) {
+                                    console.log('Stack Trace:\n    - ' + stack.innerText + '\n');
+                                }
+                            }
+
+                            return failedSuites.length;
+                        });
+                        phantom.exit(failures);
+                    },
+
+                    3000
+                );
             }
         });
     },
@@ -60,12 +81,14 @@ UnitTester = {
                 if ( (new Date().getTime() - start < maxtimeOutMillis) && !condition ) {
                     // If not time-out yet and condition not yet fulfilled
                     condition = (typeof(testFx) === "string" ? eval(testFx) : testFx()); //< defensive code
-                } else {
+                }
+                else {
                     if(!condition) {
                         // If condition still not fulfilled (timeout but condition is 'false')
                         console.log("'waitFor()' timeout");
                         phantom.exit(1);
-                    } else {
+                    }
+                    else {
                         // Condition fulfilled (timeout and/or condition is 'true')
                         console.log("'waitFor()' finished in " + (new Date().getTime() - start) + "ms.");
                         typeof(onReady) === "string" ? eval(onReady) : onReady(); //< Do what it's supposed to do once the condition is fulfilled
@@ -76,6 +99,3 @@ UnitTester = {
     }
 
 };
-
-console.log('\n\n*** Starting unit test suite... ***\n\n');
-UnitTester.init('tests.html');

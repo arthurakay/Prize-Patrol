@@ -1,8 +1,8 @@
-var config = {
-    filepath : '../app/' //relative to current directory
-};
 phantom.injectJs('../assets/PhantomLint.js');
-PhantomLint.init(config);
+PhantomLint.init({
+    filepath : '../app/', //relative to current directory
+    jsLint   : '../assets/jsLint.js'
+});
 
 //console.log('\n\n*** Starting unit test suite... ***\n\n');
 //phantom.injectJs('UnitTests.js');

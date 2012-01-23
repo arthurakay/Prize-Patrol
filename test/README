@@ -1,0 +1,17 @@
+To automate our test suite, we need to run phantom-runner.sh as a pre-commit hook with Git.
+
+To do this, we need to create (or append) the file /{rootdir}/.git/hooks/pre-commit with 777 permissions.
+
+Copy the following code into the pre-commit file:
+
+-----
+    #!/bin/bash
+
+    ### Find and execute the test suite
+    cd test
+    sh phantom-runner.sh
+
+    exit $?
+-----
+
+Now whenever "git commit" is called this script is run! Any test failure prevent the commit from completing.

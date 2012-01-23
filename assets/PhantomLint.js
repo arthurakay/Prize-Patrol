@@ -28,7 +28,7 @@ PhantomLint = {
     /**
      * @property
      */
-    jsLint   : '../assets/jslint.js',
+    jsLint   : 'assets/jslint.js',
 
     /**
      * @property
@@ -46,9 +46,32 @@ PhantomLint = {
      * @method
      * @param {object} config
      */
+    applyLintOptions : function(config) {
+        var i;
+
+        if (!config) { return false; }
+
+        for (i in config) {
+            this.lintOptions[i] = config[i];
+        }
+    },
+
+    /**
+     * @method
+     * @param {object} config
+     * @cfg {string} filepath A relative filepath to the folder containing JS files
+     * @cfg {object} lintOptions A configuration object to add/override the default options for JS Lint
+     * @cfg {boolean} verbose false to hide verbose output in your terminal (defaults to true)
+     * @cfg {string} jsLint A relative filepath to the local JSLint file to use (defaults to ./assets/jslint.js)
+     */
     init : function(config) {
+        //APPLY CONFIG OPTIONS
+        this.applyLintOptions(config.lintOptions);
+        if (config.verbose !== undefined) { this.verbose = config.verbose; }
+        if (config.jsLint !== undefined) { this.jsLint = config.jsLint; }
+
         this.log('JSLint? ' + phantom.injectJs(this.jsLint), true);
-        if (!JSLINT) { phantom.exit(); }
+        if (!JSLINT) { phantom.exit(1); }
 
         this.fileTree = this.getFiles(config.filepath);
 
@@ -65,7 +88,7 @@ PhantomLint = {
      */
     announceErrors: function() {
         this.log('\nFix Your Errors!\n\n', true);
-        phantom.exit();
+        phantom.exit(1);
     },
 
     /**
@@ -73,7 +96,7 @@ PhantomLint = {
      */
     announceSuccess: function() {
         this.log('\nSuccessfully linted yo shit.\n\n', true);
-        phantom.exit();
+        phantom.exit(0);
     },
 
     /**
