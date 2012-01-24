@@ -42,7 +42,7 @@
             "codeClass": null,
             "userConfig": {
                 "name": "id",
-                "type": "int",
+                "type": "string",
                 "designer|userClassName": "MyField3"
             },
             "customConfigs": [],

@@ -6,7 +6,7 @@
         "spacesToIndent": 4,
         "codeGenFormat": "Class",
         "exportPath": "",
-        "extPath": "http://extjs.cachefly.net/touch/sencha-touch-designer-edition/",
+        "extPath": "http://extjs.cachefly.net/touch/sencha-touch-2.0.0-pr4/",
         "senchaIoPath": "http://extjs.cachefly.net/designer/IO/",
         "lineEnding": "LF",
         "instantiateStore": true,
@@ -17,28 +17,6 @@
         "senchaIoKey": "arthurakay"
     },
     "xdsVersion": "2.0.0",
-    "application": {
-        "type": "application",
-        "reference": {
-            "name": "items",
-            "type": "array"
-        },
-        "codeClass": null,
-        "userConfig": {
-            "models": [
-                "Contestant",
-                "Prize"
-            ],
-            "stores": [
-                "Contestants",
-                "Prizes"
-            ],
-            "designer|launch": "",
-            "name": "MyApp"
-        },
-        "customConfigs": [],
-        "expanded": true
-    },
     "framework": "touch20",
     "topInstanceFileMap": {
         "1af8f00a-579e-4222-b382-4dbf10a2d912": {

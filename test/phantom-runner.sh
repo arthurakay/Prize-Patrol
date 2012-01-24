@@ -8,7 +8,7 @@ function checkError {
 }
 
 echo "*** PhantomLint on /app/... ***"
-../assets/phantomjs-1.3.0/bin/phantomjs test_suite.js
+#../assets/phantomjs-1.3.0/bin/phantomjs test_suite.js
 checkError $?
 
 
