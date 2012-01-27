@@ -28,7 +28,7 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "addPrize",
-                "implHandler": "var me = this;\n\nExt.Msg.prompt(\n'Enter your Prize',\n'Enter the name of the prize.',\nme.newPrize\n);",
+                "implHandler": "        var me = this;\n\n        Ext.Msg.prompt(\n        'Enter your Prize',\n        'Enter the name of the prize.',\n        me.newPrize\n        );",
                 "name": "tap",
                 "designer|targetType": "Ext.Button",
                 "designer|controlQuery": "prizes button[ui=action]",
@@ -47,7 +47,7 @@
             "codeClass": null,
             "userConfig": {
                 "fn": "clearPrizes",
-                "implHandler": "var prizeStore = Ext.data.StoreMgr.lookup('Prizes');\n\nprizeStore.removeAll();\nprizeStore.getProxy().clear();",
+                "implHandler": "        var prizeStore = Ext.data.StoreMgr.lookup('Prizes');\n\n        prizeStore.removeAll();\n        prizeStore.getProxy().clear();",
                 "name": "tap",
                 "designer|targetType": "Ext.Button",
                 "designer|controlQuery": "prizes button[ui=decline]",
@@ -70,7 +70,7 @@
                     "btn",
                     "name"
                 ],
-                "implHandler": "if (btn === 'cancel') { return false; }\n\nif (!name || typeof name !== 'string' || name === '') { return false; }\n\nvar newPrize = new MyApp.model.Prize({\n    Name: name\n});\n\nvar prizeStore = Ext.data.StoreMgr.lookup('Prizes');\n\nprizeStore.add(newPrize);\nprizeStore.sync();",
+                "implHandler": "        if (btn === 'cancel') { return false; }\n\n        if (!name || typeof name !== 'string' || name === '') { return false; }\n\n        var newPrize = new MyApp.model.Prize({\n            Name: name\n        });\n\n        var prizeStore = Ext.data.StoreMgr.lookup('Prizes');\n\n        prizeStore.add(newPrize);\n        prizeStore.sync();",
                 "designer|userClassName": "newPrize"
             },
             "customConfigs": [],

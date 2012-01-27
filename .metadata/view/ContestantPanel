@@ -1,5 +1,5 @@
 {
-    "id": "ExtBox1-ext-gen1980",
+    "id": "ExtBox1-ext-gen5250",
     "type": "container",
     "reference": {
         "name": "items",
@@ -12,12 +12,12 @@
         "designer|userAlias": "contestants"
     },
     "customConfigs": [],
-    "designerId": "86e70520-eb3d-44cf-a813-4cf5fb58a2d0",
+    "designerId": "1b411289-7675-48ac-a7cb-23ced7515c3f",
     "$viewOrder": 1,
-    "expanded": false,
+    "expanded": true,
     "cn": [
         {
-            "id": "ExtBox1-ext-gen7841",
+            "id": "ExtBox1-ext-gen6546",
             "type": "list",
             "reference": {
                 "name": "items",
@@ -33,7 +33,7 @@
             "expanded": true
         },
         {
-            "id": "ExtBox1-ext-gen9007",
+            "id": "ExtBox1-ext-gen6892",
             "type": "toolbar",
             "reference": {
                 "name": "items",
@@ -45,10 +45,10 @@
                 "designer|userClassName": "MyToolbar"
             },
             "customConfigs": [],
-            "expanded": false,
+            "expanded": true,
             "cn": [
                 {
-                    "id": "ExtBox1-ext-gen10849",
+                    "id": "ExtBox1-ext-gen7290",
                     "type": "button",
                     "reference": {
                         "name": "items",
@@ -56,16 +56,15 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "itemId": "addContestant",
                         "ui": "action",
                         "text": "Add Contestant",
-                        "designer|userClassName": "MyButton2"
+                        "designer|userClassName": "MyButton"
                     },
                     "customConfigs": [],
                     "expanded": true
                 },
                 {
-                    "id": "ExtBox1-ext-gen10693",
+                    "id": "ExtBox1-ext-gen8435",
                     "type": "spacer",
                     "reference": {
                         "name": "items",
@@ -79,7 +78,7 @@
                     "expanded": true
                 },
                 {
-                    "id": "ExtBox1-ext-gen12068",
+                    "id": "ExtBox1-ext-gen7481",
                     "type": "button",
                     "reference": {
                         "name": "items",
@@ -87,16 +86,15 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "itemId": "callWinner",
                         "ui": "confirm",
                         "text": "Call Winner",
-                        "designer|userClassName": "MyButton4"
+                        "designer|userClassName": "MyButton1"
                     },
                     "customConfigs": [],
                     "expanded": true
                 },
                 {
-                    "id": "ExtBox1-ext-gen11033",
+                    "id": "ExtBox1-ext-gen7674",
                     "type": "button",
                     "reference": {
                         "name": "items",
@@ -104,10 +102,9 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "itemId": "clearContestants",
                         "ui": "decline",
                         "text": "Clear",
-                        "designer|userClassName": "MyButton3"
+                        "designer|userClassName": "MyButton2"
                     },
                     "customConfigs": [],
                     "expanded": true

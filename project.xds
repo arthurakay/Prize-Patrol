@@ -19,14 +19,6 @@
     "xdsVersion": "2.0.0",
     "framework": "touch20",
     "topInstanceFileMap": {
-        "1af8f00a-579e-4222-b382-4dbf10a2d912": {
-            "paths": [
-                "app/view/Main.js",
-                "app/view/ui/Main.js",
-                "app/view/Viewport.js"
-            ],
-            "className": "Main"
-        },
         "a41014ea-5ddf-4f16-a298-71753ec55acc": {
             "paths": [
                 "app/store/Contestants.js",
@@ -53,14 +45,22 @@
             ],
             "className": "Prize"
         },
-        "86e70520-eb3d-44cf-a813-4cf5fb58a2d0": {
+        "1dac6e96-8aa0-46f2-be5e-cb02173af022": {
+            "paths": [
+                "app/view/Main.js",
+                "app/view/ui/Main.js",
+                "app/view/Viewport.js"
+            ],
+            "className": "Main"
+        },
+        "1b411289-7675-48ac-a7cb-23ced7515c3f": {
             "paths": [
                 "app/view/ContestantPanel.js",
                 "app/view/ui/ContestantPanel.js"
             ],
             "className": "ContestantPanel"
         },
-        "e3e12c36-977c-4570-af51-17a4336c9590": {
+        "1d327907-191e-4504-8900-0ba51baa202c": {
             "paths": [
                 "app/view/PrizePanel.js",
                 "app/view/ui/PrizePanel.js"

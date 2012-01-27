@@ -1,5 +1,5 @@
 {
-    "id": "ExtBox1-ext-gen1960",
+    "id": "ExtBox1-ext-gen5230",
     "type": "tabpanel",
     "reference": {
         "name": "items",
@@ -11,12 +11,12 @@
         "designer|userClassName": "Main"
     },
     "customConfigs": [],
-    "designerId": "1af8f00a-579e-4222-b382-4dbf10a2d912",
+    "designerId": "1dac6e96-8aa0-46f2-be5e-cb02173af022",
     "$viewOrder": 0,
     "expanded": false,
     "cn": [
         {
-            "id": "ExtBox1-ext-gen1972",
+            "id": "ExtBox1-ext-gen5242",
             "type": "tabbar",
             "reference": {
                 "name": "tabBar",
@@ -25,14 +25,13 @@
             "codeClass": null,
             "userConfig": {
                 "docked": "bottom",
-                "designer|userClassName": "MyTabBar",
-                "container|pack": "center"
+                "designer|userClassName": "MyTabBar"
             },
             "customConfigs": [],
             "expanded": true
         },
         {
-            "id": "ExtBox1-ext-gen21948",
+            "id": "ExtBox1-ext-gen8662",
             "type": "linkedinstance",
             "reference": {
                 "name": "items",
@@ -41,17 +40,17 @@
             "codeClass": null,
             "userConfig": {
                 "title": "Contestants",
-                "iconCls": "team",
                 "designer|userClassName": "ContestantPanel",
-                "designer|userAlias": "contestants"
+                "designer|userAlias": "contestants",
+                "iconCls": "team"
             },
             "customConfigs": [],
             "iconCls": "icon-linkedinstance",
             "expanded": true,
-            "masterInstanceId": "ExtBox1-ext-gen1980"
+            "masterInstanceId": "ExtBox1-ext-gen5250"
         },
         {
-            "id": "ExtBox1-ext-gen23458",
+            "id": "ExtBox1-ext-gen9846",
             "type": "linkedinstance",
             "reference": {
                 "name": "items",
@@ -60,14 +59,14 @@
             "codeClass": null,
             "userConfig": {
                 "title": "Prizes",
-                "iconCls": "favorites",
                 "designer|userClassName": "PrizePanel",
-                "designer|userAlias": "prizes"
+                "designer|userAlias": "prizes",
+                "iconCls": "favorites"
             },
             "customConfigs": [],
             "iconCls": "icon-linkedinstance",
             "expanded": true,
-            "masterInstanceId": "ExtBox1-ext-gen1988"
+            "masterInstanceId": "ExtBox1-ext-gen5258"
         }
     ]
 }

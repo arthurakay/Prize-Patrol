@@ -1,5 +1,5 @@
 {
-    "id": "ExtBox1-ext-gen1988",
+    "id": "ExtBox1-ext-gen5258",
     "type": "container",
     "reference": {
         "name": "items",
@@ -12,12 +12,12 @@
         "designer|userAlias": "prizes"
     },
     "customConfigs": [],
-    "designerId": "e3e12c36-977c-4570-af51-17a4336c9590",
+    "designerId": "1d327907-191e-4504-8900-0ba51baa202c",
     "$viewOrder": 2,
-    "expanded": false,
+    "expanded": true,
     "cn": [
         {
-            "id": "ExtBox1-ext-gen8615",
+            "id": "ExtBox1-ext-gen6718",
             "type": "list",
             "reference": {
                 "name": "items",
@@ -33,7 +33,7 @@
             "expanded": true
         },
         {
-            "id": "ExtBox1-ext-gen9190",
+            "id": "ExtBox1-ext-gen7090",
             "type": "toolbar",
             "reference": {
                 "name": "items",
@@ -45,10 +45,10 @@
                 "designer|userClassName": "MyToolbar1"
             },
             "customConfigs": [],
-            "expanded": false,
+            "expanded": true,
             "cn": [
                 {
-                    "id": "ExtBox1-ext-gen9840",
+                    "id": "ExtBox1-ext-gen7869",
                     "type": "button",
                     "reference": {
                         "name": "items",
@@ -56,16 +56,15 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "itemId": "addPrize",
                         "ui": "action",
                         "text": "Add Prize",
-                        "designer|userClassName": "MyButton"
+                        "designer|userClassName": "MyButton3"
                     },
                     "customConfigs": [],
                     "expanded": true
                 },
                 {
-                    "id": "ExtBox1-ext-gen10484",
+                    "id": "ExtBox1-ext-gen8265",
                     "type": "spacer",
                     "reference": {
                         "name": "items",
@@ -79,7 +78,7 @@
                     "expanded": true
                 },
                 {
-                    "id": "ExtBox1-ext-gen10016",
+                    "id": "ExtBox1-ext-gen8066",
                     "type": "button",
                     "reference": {
                         "name": "items",
@@ -87,10 +86,9 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "itemId": "clearPrizes",
                         "ui": "decline",
                         "text": "Clear",
-                        "designer|userClassName": "MyButton1"
+                        "designer|userClassName": "MyButton4"
                     },
                     "customConfigs": [],
                     "expanded": true
