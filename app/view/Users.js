@@ -1,23 +1,27 @@
 Ext.define('PrizePatrol.view.Users', {
     extend : 'Ext.Container',
+    alias  : 'widget.pp-users',
 
     requires : [
         'Ext.dataview.List'
     ],
 
     config : {
-        id     : 'foobar',
         layout : {
             type : 'fit'
         },
-        cls    : [
-            'comeclass'
-        ],
         items  : [
             {
                 xtype  : 'toolbar',
                 docked : 'top',
-                title  : 'Sencha Chicago'
+                title  : '',
+                items  : [
+                    {
+                        xtype : 'button',
+                        ui    : 'back',
+                        text  : 'Back'
+                    }
+                ]
             },
             {
                 xtype  : 'toolbar',

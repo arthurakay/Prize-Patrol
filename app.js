@@ -2,12 +2,13 @@ Ext.application({
     name: 'PrizePatrol',
 
     requires: [
-        'Ext.MessageBox'
+        'Ext.MessageBox',
+        'PrizePatrol.MeetupApiUtil'
     ],
 
-    views: [ 'Users' ],
-    stores : [ 'Users' ],
-    controllers : [ 'User' ],
+    views: [ 'Viewport' ],
+    stores : [ 'Users', 'Events' ],
+    controllers : [ 'User', 'Event' ],
 
     icon: {
         '57': 'resources/icons/Icon.png',
@@ -32,7 +33,7 @@ Ext.application({
         Ext.fly('appLoadingIndicator').destroy();
 
         // Initialize the main view
-        Ext.Viewport.add(Ext.create('PrizePatrol.view.Users'));
+        PrizePatrol.viewport = Ext.Viewport.add(Ext.create('PrizePatrol.view.Viewport'));
     },
 
     onUpdated: function() {
