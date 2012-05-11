@@ -22,7 +22,7 @@ Ext.define('PrizePatrol.view.Events', {
                 itemTpl : new Ext.XTemplate(
                     '<p>',
                     '{name}<br />',
-                    '{date:date("j/d/Y")}',
+                    '{date:date("D m/d/Y")}',
                     '</p>'
                 )
             }

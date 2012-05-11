@@ -15,8 +15,17 @@ Ext.define('PrizePatrol.controller.User', {
         var store = Ext.data.StoreManager.lookup('UserStore');
 
         var index = Math.floor(Math.random() * store.getCount());
+        var winner = store.getAt(index);
+        var img = '';
 
-        Ext.Msg.alert(store.getAt(index).get('name'));
+        if (winner.get('photo')) {
+            img = '<img src="http://src.sencha.io/200/' + winner.get('photo') + '" />';
+        }
+
+        Ext.Msg.alert(
+            'Winner',
+            winner.get('name') + ' has won a prize!<br />' + img
+        );
 
         store.removeAt(index);
     },

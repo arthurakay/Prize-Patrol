@@ -16,7 +16,7 @@ Ext.define('PrizePatrol.model.Event', {
                 mapping    : 'time',
                 name       : 'date',
                 type       : 'date',
-                dateFormat : 'U'
+                dateFormat : 'time'
             }
         ]
     }
