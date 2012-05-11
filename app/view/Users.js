@@ -38,7 +38,12 @@ Ext.define('PrizePatrol.view.Users', {
             {
                 xtype   : 'list',
                 itemTpl : [
-                    '<div>{name}</div>'
+                    '<div>',
+                    '<tpl if="photo">',
+                    '<img src="http://src.sencha.io/50/{photo}" alt="" style="margin-right: 10px;" />',
+                    '</tpl>',
+                    '{name}',
+                    '</div>'
                 ],
                 store   : 'UserStore'
             }

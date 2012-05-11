@@ -1,6 +1,6 @@
 Ext.define('PrizePatrol.view.Events', {
     extend : 'Ext.Container',
-    alias : 'widget.pp-events',
+    alias  : 'widget.pp-events',
 
     requires : [
         'Ext.dataview.List'
@@ -18,10 +18,13 @@ Ext.define('PrizePatrol.view.Events', {
             },
             {
                 xtype   : 'list',
-                itemTpl : [
-                    '<div>{name}</div>'
-                ],
-                store   : 'EventStore'
+                store   : 'EventStore',
+                itemTpl : new Ext.XTemplate(
+                    '<p>',
+                    '{name}<br />',
+                    '{date:date("j/d/Y")}',
+                    '</p>'
+                )
             }
         ]
     }
