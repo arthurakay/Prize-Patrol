@@ -18,7 +18,7 @@ Ext.define('PrizePatrol.controller.Event', {
         userStore.load();
 
         //set the toolbar title
-        userList.down('toolbar').setTitle(record.get('name'));
+        userList.down('toolbar').setTitle(Ext.String.ellipsis(record.get('name'), 20, true));
 
         //switch the card
         PrizePatrol.viewport.setActiveItem(userList);
