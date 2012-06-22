@@ -2,4 +2,6 @@ Original application developed by Arthur Kay for use in the Chicago Sencha User 
   - http://www.akawebdesign.com/2011/05/18/sencha-touch-prize-patrol-app/
   - http://prize-patrol.senchafy.com/
 
-The basic idea is that given a list of contestants and prizes, an event organizer can raffle prizes. The prizes are raffled in last-to-first order, and the winning contestant is chosen via a random number algorithm.
+The basic idea is to connect to our group's Meetup.com account and display upcoming events. For a given event, we can pick winners for our prize raffles.
+
+Nothing exciting, but a good demonstration of Sencha Touch, our SDK Tools and the Meetup.com API.
