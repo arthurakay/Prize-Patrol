@@ -1,26 +1,28 @@
 Ext.define('PrizePatrol.controller.Event', {
-    extend: 'Ext.app.Controller',
-    config: {
-        control: {
-            'pp-events > list' : {
-                itemtap: 'itemTapHandler'
+    extend : 'Ext.app.Controller',
+    config : {
+        control : {
+            'pp-events' : {
+                itemtap : 'itemTapHandler'
             }
         }
     },
 
-    itemTapHandler : function(thisView, index, target, record, event, options) {
+    itemTapHandler : function (thisView, index, target, record, event, options) {
         var recordId = record.get('id');
-        var userList = Ext.ComponentQuery.query('pp-users')[0];
+
+        var userList = Ext.create('PrizePatrol.view.Users', {
+            title : Ext.String.ellipsis(record.get('name'), 20, true)
+        });
 
         //get the Users store, reload after changing URL
-        var userStore = Ext.data.StoreManager.lookup('UserStore');
+        var userStore = Ext.create('PrizePatrol.store.Users');
         userStore.getProxy().setUrl(PrizePatrol.MeetupApiUtil.getUsersUrl(recordId));
         userStore.load();
 
-        //set the toolbar title
-        userList.down('toolbar').setTitle(Ext.String.ellipsis(record.get('name'), 20, true));
+        userList.down('list').setStore(userStore);
 
-        //switch the card
-        PrizePatrol.viewport.setActiveItem(userList);
+        var navView = Ext.Viewport.down('navigationview');
+        navView.push(userList);
     }
 });

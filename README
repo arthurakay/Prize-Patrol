@@ -7,7 +7,7 @@ Nothing exciting, but a good demonstration of Sencha Touch and the Meetup.com AP
 
 == SPECS ==
 
-The application is written using Sencha Touch (v2.0.1), and was built using the Sencha SDK Tools (v2.0.0 beta 3).
+The application is written using Sencha Touch (v2.2.1), and was built using the Sencha Cmd (v4.0.0.66).
 
 Because this is a demo app, there are a number of additional pieces:
   - UI Tests via Siesta (v1.1.5-lite)

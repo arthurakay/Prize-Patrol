@@ -1,5 +1,5 @@
 Ext.define('PrizePatrol.view.Viewport', {
-    extend : 'Ext.Container',
+    extend : 'Ext.navigation.View',
     alias  : 'pp-viewport',
 
     requires : [
@@ -8,17 +8,9 @@ Ext.define('PrizePatrol.view.Viewport', {
     ],
 
     config : {
-        layout : {
-            type      : 'card',
-            animation : 'slide'
-        },
-
         items : [
             {
                 xtype : 'pp-events'
-            },
-            {
-                xtype : 'pp-users'
             }
         ]
     }

@@ -1,5 +1,5 @@
 Ext.define('PrizePatrol.view.Events', {
-    extend : 'Ext.Container',
+    extend : 'Ext.dataview.List',
     alias  : 'widget.pp-events',
 
     requires : [
@@ -7,26 +7,17 @@ Ext.define('PrizePatrol.view.Events', {
     ],
 
     config : {
-        layout : {
-            type : 'fit'
-        },
-        items  : [
-            {
-                xtype  : 'toolbar',
-                docked : 'top',
-                title  : 'Sencha Chicago User Group'
-            },
-            {
-                xtype   : 'list',
-                store   : 'EventStore',
-                itemTpl : new Ext.XTemplate(
-                    '<p>',
-                    '{name}<br />',
-                    '{date:date("D m/d/Y")}',
-                    '</p>'
-                )
-            }
-        ]
+
+        title : 'Sencha Chicago User Group',
+
+        store   : 'EventStore',
+
+        itemTpl : new Ext.XTemplate(
+            '<p>',
+            '{name}<br />',
+            '{date:date("D m/d/Y")}',
+            '</p>'
+        )
     }
 
 });

@@ -4,9 +4,6 @@ Ext.define('PrizePatrol.controller.User', {
         control: {
             "button#mybutton": {
                 tap: 'onMybuttonTap'
-            },
-            "button[ui=back]": {
-                tap: 'onBackHandler'
             }
         }
     },
@@ -28,10 +25,6 @@ Ext.define('PrizePatrol.controller.User', {
         );
 
         store.removeAt(index);
-    },
-
-    onBackHandler : function() {
-        PrizePatrol.viewport.setActiveItem(0);
     }
 
 });

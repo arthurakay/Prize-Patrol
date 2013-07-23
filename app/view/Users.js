@@ -3,7 +3,7 @@ Ext.define('PrizePatrol.view.Users', {
     alias  : 'widget.pp-users',
 
     requires : [
-        'Ext.dataview.List'
+        'PrizePatrol.store.Users'
     ],
 
     config : {
@@ -11,18 +11,6 @@ Ext.define('PrizePatrol.view.Users', {
             type : 'fit'
         },
         items  : [
-            {
-                xtype  : 'toolbar',
-                docked : 'top',
-                title  : '',
-                items  : [
-                    {
-                        xtype : 'button',
-                        ui    : 'back',
-                        text  : 'Back'
-                    }
-                ]
-            },
             {
                 xtype  : 'toolbar',
                 docked : 'bottom',
@@ -36,16 +24,16 @@ Ext.define('PrizePatrol.view.Users', {
                 ]
             },
             {
-                xtype   : 'list',
-                itemTpl : [
-                    '<div>',
+                xtype    : 'list',
+                infinite : true,
+                itemTpl  : [
+                    '<div style="height: 30px;">',
                     '<tpl if="photo">',
-                    '<img src="http://src.sencha.io/50/{photo}" alt="" style="margin-right: 10px;" />',
+                    '<img src="http://src.sencha.io/50/{photo}" alt="" style="margin-right: 10px;" height="25" />',
                     '</tpl>',
                     '{name}',
                     '</div>'
-                ],
-                store   : 'UserStore'
+                ]
             }
         ]
     }
