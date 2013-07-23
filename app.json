@@ -46,7 +46,7 @@
         {
             "path": "app.js",
             "bundle": true,  /* Indicates that all class dependencies are concatenated into this file when build */
-            "update": "delta"
+            "update": "full"
         }
     ],
 
@@ -68,8 +68,19 @@
      */
     "css": [
         {
-            "path": "resources/css/app.css",
-            "update": "delta"
+            "path"     : "resources/css/app.css",
+            "update"   : "full",
+            "platform" : ["desktop"]
+        },
+        {
+            "path"     : "touch/resources/css/bb10.css",
+            "update"   : "full",
+            "platform" : ["ios"]
+        },
+        {
+            "path"     : "touch/resources/css/wp.css",
+            "update"   : "full",
+            "platform" : ["ie10"]
         }
     ],
 
