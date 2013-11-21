@@ -24,6 +24,14 @@
                 color: color-by-background($base-color);
             }
         }
+
+				&.x-item-pressed {
+					.x-dock-horizontal,
+					&.x-list-item-tpl .x-innerhtml {
+						background-color: #ccc;
+						color: color-by-background($background-color);
+					}
+				}
     }
 
     .x-list-item-odd {

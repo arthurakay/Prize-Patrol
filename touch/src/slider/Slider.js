@@ -494,7 +494,7 @@ Ext.define('Ext.slider.Slider', {
 
     /**
      * Sets the {@link #increment} configuration.
-     * @param  {Number} increment
+     * @param {Number} increment
      * @return {Number}
      */
     applyIncrement: function(increment) {

@@ -23,6 +23,7 @@ Ext.define('Ext.env.Browser', {
             dolfin: 'Dolfin',
             webosbrowser: 'webOSBrowser',
             chromeMobile: 'ChromeMobile',
+            chromeiOS: 'ChromeiOS',
             silk: 'Silk',
             other: 'Other'
         },
@@ -48,6 +49,7 @@ Ext.define('Ext.env.Browser', {
             dolfin: 'Dolfin/',
             webosbrowser: 'wOSBrowser/',
             chromeMobile: 'CrMo/',
+            chromeiOS: 'CriOS/',
             silk: 'Silk/'
         }
     },
@@ -204,6 +206,15 @@ Ext.define('Ext.env.Browser', {
         if (engineMatch) {
             engineName = engineNames[Ext.Object.getKey(statics.enginePrefixes, engineMatch[1])];
             engineVersion = new Ext.Version(engineMatch[2]);
+        }
+
+        if (engineName == 'Trident' && browserName != 'IE') {
+            browserName = 'IE';
+            var version = userAgent.match(/.*rv:(\d+.\d+)/);
+            if (version && version.length) {
+                version = version[1];
+                browserVersion = new Ext.Version(version);
+            }
         }
 
         // Facebook changes the userAgent when you view a website within their iOS app. For some reason, the strip out information

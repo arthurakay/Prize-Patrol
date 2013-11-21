@@ -10,15 +10,6 @@
  will need to resolve manually.
  */
 
-// DO NOT DELETE - this directive is required for Sencha Cmd packages to work.
-// @require @overrides
-
-//<debug>
-Ext.Loader.setPath({
-    'Ext': 'touch/src'
-});
-//</debug>
-
 Ext.application({
     name: 'PrizePatrol',
 

@@ -232,41 +232,18 @@ Ext.define('Ext.event.publisher.TouchGesture', {
         var identifier = touch.identifier,
             currentTouch = this.touchesMap[identifier],
             target, x, y;
-//            ratio = this.screenPositionRatio,
-//            screenX = touch.screenX * ratio,
-//            screenY = touch.screenY * ratio,
-//            target, targetWindow, framePageBox, x, y, offsets;
 
         if (!currentTouch) {
             target = this.getElementTarget(touch.target);
-//            targetWindow = target.ownerDocument.defaultView;
 
             this.touchesMap[identifier] = currentTouch = {
                 identifier: identifier,
                 target: target,
                 targets: this.getBubblingTargets(target)
-//                offsets: { x: 0, y: 0 }
             };
 
             this.currentIdentifiers.push(identifier);
-//
-//            offsets = currentTouch.offsets;
-//
-//            if (targetWindow !== document.defaultView) {
-//                framePageBox = targetWindow.frameElement.getBoundingClientRect();
-//                offsets.x = framePageBox.left + touch.pageX - screenX;
-//                offsets.y = framePageBox.top + touch.pageY - screenY;
-//            }
-//            else {
-//                offsets.x = touch.pageX - screenX;
-//                offsets.y = touch.pageY - screenY;
-//            }
         }
-
-//        offsets = currentTouch.offsets;
-
-//        x = Math.round(offsets.x + screenX);
-//        y = Math.round(offsets.y + screenY);
 
         x  = touch.pageX;
         y  = touch.pageY;
@@ -326,11 +303,6 @@ Ext.define('Ext.event.publisher.TouchGesture', {
         this.invokeRecognizers('onTouchStart', e);
 
         parent = target.parentNode || {};
-
-        // Prevent all emulated mouse events by stopping the default of touchstart. This will also stop the focus event.
-        if (Ext.os.is.iOS && !isNotPreventable.test(target.tagName) && !isNotPreventable.test(parent.tagName)) {
-            e.preventDefault();
-        }
     },
 
     onTouchMove: function(e) {
@@ -432,7 +404,11 @@ Ext.define('Ext.event.publisher.TouchGesture', {
                 MSPointerDown: 'touchstart',
                 MSPointerMove: 'touchmove',
                 MSPointerUp: 'touchend',
-                MSPointerCancel: 'touchcancel'
+                MSPointerCancel: 'touchcancel',
+                pointerdown: 'touchstart',
+                pointermove: 'touchmove',
+                pointerup: 'touchend',
+                pointercancel: 'touchcancel'
             },
 
             touchToPointerMap: {
@@ -466,19 +442,9 @@ Ext.define('Ext.event.publisher.TouchGesture', {
             }
         });
     }
-    else if (Ext.os.is.ChromeOS || !Ext.feature.has.Touch) {
+    else if (!Ext.browser.is.Ripple && (Ext.os.is.ChromeOS || !Ext.feature.has.Touch)) {
         this.override({
             handledEvents: ['touchstart', 'touchmove', 'touchend', 'touchcancel', 'mousedown', 'mousemove', 'mouseup']
-        });
-    }
-    else if (!Ext.browser.is.Silk && Ext.feature.has.Touch) {
-        // Stop all mousedown events on Touch capable browsers. This will prevent the 'focus' event from the emulated mouse events on non-iOS devices
-        Ext.onDocumentReady(function() {
-            window.document.body.addEventListener('mousedown', function(e){
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
-            }, true);
         });
     }
 });

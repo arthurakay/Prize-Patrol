@@ -200,7 +200,7 @@ Ext.define('Ext.app.Route', {
 
         for (i = 0; i < length; i++) {
             cond    = this.getConditions()[paramsInMatchString[i]];
-            matcher = Ext.util.Format.format("({0})", cond || "[%a-zA-Z0-9\-\\_\\s,]+");
+            matcher = Ext.util.Format.format("({0})", cond || "[%a-zA-Z0-9\\-\\_\\s,]+");
 
             url = url.replace(new RegExp(paramsInMatchString[i]), matcher);
         }

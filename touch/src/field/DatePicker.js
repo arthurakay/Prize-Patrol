@@ -105,7 +105,7 @@
  *
  */
 Ext.define('Ext.field.DatePicker', {
-    extend: 'Ext.field.Text',
+    extend: 'Ext.field.Select',
     alternateClassName: 'Ext.form.DatePicker',
     xtype: 'datepickerfield',
     requires: [
@@ -236,7 +236,7 @@ Ext.define('Ext.field.DatePicker', {
 
     /**
      * Returns the {@link Date} value of this field.
-     * If you wanted a formated date
+     * If you wanted a formatted date use the {@link #getFormattedValue} method.
      * @return {Date} The date selected
      */
     getValue: function() {

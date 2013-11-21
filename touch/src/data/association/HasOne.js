@@ -334,7 +334,7 @@ Ext.define('Ext.data.association.HasOne', {
                 options.success = function(rec){
                     model[instanceName] = rec;
                     if (success) {
-                        success.call(this, arguments);
+                        success.apply(this, arguments);
                     }
                 };
 

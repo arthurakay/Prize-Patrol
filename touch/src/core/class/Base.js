@@ -1281,8 +1281,8 @@ var noArgs = [],
 
         /**
          * @private
-         * @param name
-         * @param value
+         * @param {String} name
+         * @param {Mixed} value
          * @return {Mixed}
          */
         link: function(name, value) {

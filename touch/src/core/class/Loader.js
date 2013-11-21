@@ -582,7 +582,7 @@
          * Inject a script element to document's head, call onLoad and onError accordingly
          * @private
          */
-        injectScriptElement: function(url, onLoad, onError, scope) {
+        injectScriptElement: function(url, onLoad, onError, scope, charset) {
             var script = document.createElement('script'),
                 me = this,
                 onLoadFn = function() {
@@ -604,6 +604,10 @@
                 }
             };
 
+            if (charset) {
+                script.charset = charset;
+            }
+            
             this.documentHead.appendChild(script);
 
             return script;

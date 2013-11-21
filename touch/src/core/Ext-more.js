@@ -32,7 +32,7 @@
  *
  * [getting_started]: #!/guide/getting_started
  */
-Ext.setVersion('touch', '2.2.1');
+Ext.setVersion('touch', '2.3.0');
 
 Ext.apply(Ext, {
     /**
@@ -265,13 +265,16 @@ Ext.apply(Ext, {
                         xclass: 'Ext.event.recognizer.LongPress'
                     },
                     swipe: {
-                        xclass: 'Ext.event.recognizer.HorizontalSwipe'
+                        xclass: 'Ext.event.recognizer.Swipe'
                     },
                     pinch: {
                         xclass: 'Ext.event.recognizer.Pinch'
                     },
                     rotate: {
                         xclass: 'Ext.event.recognizer.Rotate'
+                    },
+                    edgeSwipe: {
+                        xclass: 'Ext.event.recognizer.EdgeSwipe'
                     }
                 }
             },
@@ -290,6 +293,11 @@ Ext.apply(Ext, {
             elementSize: {
                 xclass: 'Ext.event.publisher.ElementSize'
             }
+            //<feature charts>
+            ,seriesItemEvents: {
+                xclass: 'Ext.chart.series.ItemPublisher'
+            }
+            //</feature>
         },
 
         //<feature logger>
@@ -656,7 +664,7 @@ Ext.apply(Ext, {
         var icon = config.icon,
             isIconPrecomposed = Boolean(config.isIconPrecomposed),
             startupImage = config.startupImage || {},
-            statusBarStyle = config.statusBarStyle,
+            statusBarStyle = config.statusBarStyle || 'black',
             devicePixelRatio = window.devicePixelRatio || 1;
 
 
@@ -944,6 +952,25 @@ Ext.apply(Ext, {
      *             // ...
      *         }
      *     });
+     *
+     * @param {Function} config.onUpdated
+     * This function will execute once the production microloader determines there are updates to the application and has
+     * merged the updates into the application. You can then alert the user there was an update and can then reload
+     * the application to execute the updated application.
+     *
+     *     Ext.application({
+     *         onUpdated : function() {
+     *             Ext.Msg.confirm(
+     *                 'Application Update',
+     *                 'This application has just successfully been updated to the latest version. Reload now?',
+     *                 function(buttonId) {
+     *                     if (buttonId === 'yes') {
+     *                         window.location.reload();
+     *                     }
+     *                 }
+     *             );
+     *         }
+     *     });
      */
     application: function(config) {
         var appName = config.name,
@@ -977,8 +1004,8 @@ Ext.apply(Ext, {
 
     /**
      * @private
-     * @param config
-     * @param callback
+     * @param {Object} config
+     * @param {Function} callback
      * @member Ext
      */
     factoryConfig: function(config, callback) {
@@ -1072,7 +1099,7 @@ Ext.apply(Ext, {
      * @param {Object} config  The config object to instantiate or update an instance with.
      * @param {String} classReference  The class to instantiate from.
      * @param {Object} [instance]  The instance to update.
-     * @param [aliasNamespace]
+     * @param {String} [aliasNamespace]
      * @member Ext
      */
     factory: function(config, classReference, instance, aliasNamespace) {
@@ -1348,10 +1375,10 @@ Ext.apply(Ext, {
                 scope: scope
             });
 
-            if (Ext.browser.is.PhoneGap && !Ext.os.is.Desktop) {
+            if ((Ext.browser.is.WebWorks || Ext.browser.is.PhoneGap) && !Ext.os.is.Desktop) {
                 if (!Ext.readyListenerAttached) {
                     Ext.readyListenerAttached = true;
-                    document.addEventListener('deviceready', triggerFn, false);
+                    document.addEventListener(Ext.browser.is.PhoneGap ? 'deviceready' : 'webworksready', triggerFn, false);
                 }
             }
             else {

@@ -278,9 +278,9 @@ Ext.define('Ext.data.proxy.Ajax', {
     /**
      * Performs Ajax request.
      * @protected
-     * @param operation
-     * @param callback
-     * @param scope
+     * @param {Ext.data.Operation} operation
+     * @param {Function} callback
+     * @param {Object} scope
      * @return {Object}
      */
     doRequest: function(operation, callback, scope) {
@@ -289,12 +289,12 @@ Ext.define('Ext.data.proxy.Ajax', {
             request = me.buildRequest(operation);
 
         request.setConfig({
-            headers  : me.getHeaders(),
-            timeout  : me.getTimeout(),
-            method   : me.getMethod(request),
-            callback : me.createRequestCallback(request, operation, callback, scope),
-            scope    : me,
-            proxy    : me,
+            headers: me.getHeaders(),
+            timeout: me.getTimeout(),
+            method: me.getMethod(request),
+            callback: me.createRequestCallback(request, operation, callback, scope),
+            scope: me,
+            proxy: me,
             useDefaultXhrHeader: me.getUseDefaultXhrHeader()
         });
 

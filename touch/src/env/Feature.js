@@ -192,6 +192,9 @@ Ext.define('Ext.env.Feature', {
      * - Video - supports the `<video>` tag.
      * - ClassList - supports the HTML5 classList API.
      * - LocalStorage - LocalStorage is supported and can be written to.
+     * - NumericInputPlaceHolder - Supports placeholders on numeric input fields
+     * - XHR2 - Supports XMLHttpRequest 
+     * - XHRUploadProgress - Supports XMLHttpRequest upload progress info
      *
      * [1]: https://developer.mozilla.org/en/DOM/range
      * [2]: https://developer.mozilla.org/en/DOM/range.createContextualFragment
@@ -315,6 +318,22 @@ Ext.define('Ext.env.Feature', {
             } catch ( e ) {}
 
             return supported;
+        },
+
+        XHR2 : function() {
+          return window.ProgressEvent && window.FormData && window.XMLHttpRequest && ('withCredentials' in new XMLHttpRequest);
+        },
+
+        XHRUploadProgress : function() {
+            if(window.XMLHttpRequest && !Ext.browser.is.AndroidStock) {
+                var xhr = new XMLHttpRequest();
+                return xhr && ('upload' in xhr) && ('onprogress' in xhr.upload);
+            }
+            return false;
+        },
+
+        NumericInputPlaceHolder: function() {
+            return !(Ext.browser.is.AndroidStock4 && Ext.os.version.getMinor() < 2);
         }
     });
 
